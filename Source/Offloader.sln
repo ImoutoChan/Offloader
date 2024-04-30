@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{9289B057-0529-4A41-837F-833F4898B7BF}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+		Offloader.sln.DotSettings = Offloader.sln.DotSettings
+		..\.github\workflows\deploy.yml = ..\.github\workflows\deploy.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Offloader", "Offloader\Offloader.csproj", "{E0DB1780-A1F7-4DA9-8EA2-F1FE69C6A2FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{971B078B-5A6B-4032-B428-799E0A2FA1BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffloaderExample.ItemProcessorFunc", "..\Examples\OffloaderExample.ItemProcessorFunc\OffloaderExample.ItemProcessorFunc.csproj", "{BA028487-921D-4A4E-A09D-DB93CF937D67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffloaderExample.ItemProcessorService", "..\Examples\OffloaderExample.ItemProcessorService\OffloaderExample.ItemProcessorService.csproj", "{62B83E90-A8A0-4A32-92CE-F39645AE1CA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0DB1780-A1F7-4DA9-8EA2-F1FE69C6A2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DB1780-A1F7-4DA9-8EA2-F1FE69C6A2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DB1780-A1F7-4DA9-8EA2-F1FE69C6A2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DB1780-A1F7-4DA9-8EA2-F1FE69C6A2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA028487-921D-4A4E-A09D-DB93CF937D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA028487-921D-4A4E-A09D-DB93CF937D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA028487-921D-4A4E-A09D-DB93CF937D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA028487-921D-4A4E-A09D-DB93CF937D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B83E90-A8A0-4A32-92CE-F39645AE1CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B83E90-A8A0-4A32-92CE-F39645AE1CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B83E90-A8A0-4A32-92CE-F39645AE1CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B83E90-A8A0-4A32-92CE-F39645AE1CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BA028487-921D-4A4E-A09D-DB93CF937D67} = {971B078B-5A6B-4032-B428-799E0A2FA1BE}
+		{62B83E90-A8A0-4A32-92CE-F39645AE1CA1} = {971B078B-5A6B-4032-B428-799E0A2FA1BE}
+	EndGlobalSection
+EndGlobal
