@@ -81,6 +81,8 @@ internal class OffloadHostedService<T> : IHostedService
     public Task StopAsync(CancellationToken cancellationToken)
     {
         _offload.Complete();
+        _cancellationTokenSource?.Cancel();
+
         return Task.CompletedTask;
     }
 }
