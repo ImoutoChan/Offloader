@@ -11,19 +11,35 @@ Install-Package Offloader
 ```xml
 <PackageReference Include="Offloader" Version="1.0.0" />
 ```
+# Configurables
+### Processor func or service
+```csharp
+// func
+services.AddOffload<OffloadItemType>(x => x.UseItemProcessor(serviceProvider, item, ct) => ...);
+
+// service, must implement IOffloadItemProcessor
+services.AddOffload<OffloadItemType, YourServiceProcessorType>();
+```
+### Degree of Parallelism
+```csharp
+// default value is 1
+x.UseDegreeOfParallelism(5)
+```
+### Custom error logging
+```csharp
+x.UseErrorLogger((logger, item, exception) => logger.LogError(ex, "Log in any format {WithValues}", item.Value))
+```
 # Samples
-More samples can be found in `Examples` directory.
-
+Full samples can be found in `Examples` directory.
 ## Simplest sample
-
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
 // ...
 
-builder.Services.AddOffload<Item>(x => x.UseItemProcessor((_, item, _) => 
+builder.Services.AddOffload<OffloadItemType>(x => x.UseItemProcessor((_, item, _) => 
     {
-        Console.WriteLine($"Processing item with value {item.Value}");
+        Console.WriteLine($"Processing item with value {item.State}");
         return Task.CompletedTask;
     })
 });
@@ -35,13 +51,11 @@ var app = builder.Build();
 // use offloader in your handlers or in your controllers
 app.MapPost(
     "/my-heavy-endpoint", 
-    (string itemValue, IOffloader<OffloadItemType> x) => x.OffloadAsync(new OffloadItemType(itemValue)));
+    (string itemValue, IOffloader<OffloadItemType> x) => x.OffloadAsync(new OffloadItemType(itemState)));
 
-public record Item(string State);
+public record OffloadItemType(string State);
 ```
-
 ## Sample with inline processor function
-
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
@@ -88,9 +102,7 @@ app.MapPost(
 
 public record OffloadItemType(string Value);
 ```
-
 ## Sample with processor as a service class
-
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
