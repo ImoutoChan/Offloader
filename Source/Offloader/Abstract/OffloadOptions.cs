@@ -9,8 +9,10 @@ public class OffloadOptions<T>
         = (_, _, _) => Task.CompletedTask;
 
     protected internal Type? ItemProcessorServiceType { get; protected set; }
-    
-    internal Action<ILogger, T, Exception> ErrorLogger { get; private set; } = (_, _, _) => { };
+
+    internal Action<ILogger, T, Exception> ErrorLogger { get; private set; }
+        = (logger, _, exception) =>
+            logger.LogError(exception, "Unable to process an offloaded item of type {ItemType}", typeof(T));
 
     [MemberNotNullWhen(true, nameof(ItemProcessorFunc))]
     [MemberNotNullWhen(false, nameof(ItemProcessorServiceType))]
