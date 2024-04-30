@@ -40,14 +40,14 @@ public class OffloadOptions<T>
 
         return this;
     }
-}
 
-public class OffloadFuncOptions<T> : OffloadOptions<T>
-{
-    public OffloadFuncOptions<T> UseItemProcessor(Func<IServiceProvider, T, CancellationToken, Task> processor)
+    public OffloadOptions<T> UseItemProcessor(Func<IServiceProvider, T, CancellationToken, Task> processor)
     {
+        if (ItemProcessorServiceType != null)
+            throw new InvalidOperationException(
+                "Item processor service type is already set. Use AddOffload<TItem> in order to set custom processing function.");
+        
         ItemProcessorFunc = processor;
-        ItemProcessorServiceType = null;
 
         return this;
     }

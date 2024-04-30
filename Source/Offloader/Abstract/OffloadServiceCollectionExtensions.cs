@@ -6,7 +6,7 @@ public static class OffloadServiceCollectionExtensions
 {
     public static IServiceCollection AddOffload<T>(
         this IServiceCollection services, 
-        Action<OffloadFuncOptions<T>> configure)
+        Action<OffloadOptions<T>> configure)
     {
         services.Configure(configure);
         
@@ -20,10 +20,11 @@ public static class OffloadServiceCollectionExtensions
 
     public static IServiceCollection AddOffload<TItem, TItemProcessorService>(
         this IServiceCollection services, 
-        Action<OffloadOptions<TItem>> configure) 
+        Action<OffloadOptions<TItem>>? configure = null) 
         where TItemProcessorService : class, IOffloadItemProcessor<TItem>
     {
-        services.Configure(configure);
+        if (configure != null)
+            services.Configure(configure);
 
         services.AddTransient<IOffloadItemProcessor<TItem>, TItemProcessorService>();
         services.Configure<OffloadOptions<TItem>>(x => x.UseItemProcessor<TItemProcessorService>());
