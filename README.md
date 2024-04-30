@@ -9,7 +9,7 @@ A convenient way to unload some heavy work to background service from your main 
 Install-Package Offloader
 ```
 ```xml
-<PackageReference Include="Offloader" Version="1.0.0" />
+<PackageReference Include="Offloader" Version="1.0.1" />
 ```
 # Configurables
 ### Processor func or service
