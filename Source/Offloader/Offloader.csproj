@@ -19,6 +19,7 @@
         <RepositoryUrl>https://github.com/ImoutoChan/Offloader</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageIcon>OffloaderNugetIcon.jpg</PackageIcon>
         <PackageTags>dotnet .net c# csahrp offload messaging message-bus messagebus</PackageTags>
     </PropertyGroup>
 
@@ -31,6 +32,7 @@
     <ItemGroup>
         <None Include="..\..\README.md" Pack="true" PackagePath="\" />
         <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+        <None Include="OffloaderNugetIcon.jpg" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
