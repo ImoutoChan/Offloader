@@ -20,7 +20,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageIcon>OffloaderNugetIcon.jpg</PackageIcon>
-        <PackageTags>dotnet .net c# csahrp offload messaging message-bus messagebus</PackageTags>
+        <PackageTags>dotnet .net c# csharp offload messaging channel hostedservice background background-work</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
