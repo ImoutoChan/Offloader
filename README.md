@@ -3,7 +3,9 @@
 [![NuGet](https://img.shields.io/nuget/v/Offloader.svg?style=flat-square)](https://www.nuget.org/packages/Offloader/)
 [![license](https://img.shields.io/github/license/ImoutoChan/Offloader.svg?style=flat-square)](https://github.com/ImoutoChan/Offloader)
 
-A convenient way to unload some heavy work to background service from your main requests.  Install as [NuGet package](https://www.nuget.org/packages/Offloader/):
+A convenient way to unload some heavy work to background service from your main requests.
+
+Install as [NuGet package](https://www.nuget.org/packages/Offloader/):
 
 ```powershell
 Install-Package Offloader
