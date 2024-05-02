@@ -7,7 +7,11 @@ namespace Offloader;
 /// </remarks>>
 internal class Offloader<T> : IOffloader<T>, IOffloadReader<T>
 {
-    private Channel<T> VotesToTranslate { get; } = Channel.CreateUnbounded<T>();
+    private Channel<T> VotesToTranslate { get; }
+        = Channel.CreateUnbounded<T>(new UnboundedChannelOptions
+        {
+            SingleReader = true
+        });
 
     public async Task OffloadAsync(T vote) => await VotesToTranslate.Writer.WriteAsync(vote);
 
