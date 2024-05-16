@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Offloader;
+namespace Offloader.Implementation;
 
 internal class OffloadHostedService<T> : IHostedService
 {

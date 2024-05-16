@@ -1,6 +1,6 @@
 using System.Threading.Channels;
 
-namespace Offloader;
+namespace Offloader.Implementation;
 
 internal interface IOffloadReader<T>
 {

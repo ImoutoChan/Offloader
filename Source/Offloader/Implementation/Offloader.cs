@@ -1,21 +1,21 @@
 ﻿using System.Threading.Channels;
 
-namespace Offloader;
+namespace Offloader.Implementation;
 
 /// <remarks>
 /// Should be registered as a singleton.
 /// </remarks>>
 internal class Offloader<T> : IOffloader<T>, IOffloadReader<T>
 {
-    private Channel<T> VotesToTranslate { get; }
+    private Channel<T> OffloadedItems { get; }
         = Channel.CreateUnbounded<T>(new UnboundedChannelOptions
         {
             SingleReader = true
         });
 
-    public async Task OffloadAsync(T vote) => await VotesToTranslate.Writer.WriteAsync(vote);
+    public async Task OffloadAsync(T item) => await OffloadedItems.Writer.WriteAsync(item);
 
-    public ChannelReader<T> Reader => VotesToTranslate.Reader;
+    public ChannelReader<T> Reader => OffloadedItems.Reader;
     
-    public void Complete() => VotesToTranslate.Writer.Complete();
+    public void Complete() => OffloadedItems.Writer.Complete();
 }

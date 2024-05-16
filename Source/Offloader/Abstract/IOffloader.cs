@@ -2,5 +2,5 @@
 
 public interface IOffloader<in T>
 {
-    Task OffloadAsync(T vote);
+    Task OffloadAsync(T item);
 }
